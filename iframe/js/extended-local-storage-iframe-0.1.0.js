@@ -5,7 +5,9 @@
  * @name extended-local-storage-iframe-0.1.0.js
  * @author Ryosuke Tsuji @thujikun
  * @version 0.1.0
- * Dual licensed under the MIT or GPL Version 2 licenses.
+ * Copyright (c) 2012 "thujikun" Ryosuke Tsuji
+ * Licensed under the MIT license.
+ * https://github.com/thujikun/extended-local-storage/blob/master/LICENSE-MIT
 */
 
 ;var ExtendedLocalStorageIframe = function(domains) {
