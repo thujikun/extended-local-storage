@@ -68,12 +68,12 @@ ExtendedLocalStorageIframe.prototype = {
     addEvent: function(handler, element, func){
         if(element.addEventListener) {
             element.addEventListener(handler, function(e) {
-                func(e);
+                func.call(element, e);
             }, false);
         } else if(element.attachEvent) {
             handler = 'on' + handler;
             element.attachEvent(handler, function(e) {
-                func(e);
+                func.call(element, e);
             });
         }
     },
