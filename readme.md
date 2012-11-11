@@ -31,7 +31,7 @@ extended-local-storage enables use different origin local storage.
     })
 </script>
 ```
-### extend-local-storage-permissions
+### extend-local-storage-permissions.js
 ```shell
 ;var extendedLocalStoragePermissions = [
     'http://yourdomain.com'
