@@ -8,6 +8,10 @@ extended-local-storage enables use different origin local storage.
 * in extended-local-storage-permissions.js, set urls you want to permit to access your domain's localstorage.
 * And then, you can use "extendedLocalStorage.setItem()" and "ExtendedLocalStorage.getItem()".
 
+##Demo
+http page to https page access sample is [here]: http://kabocha.orz.hm/test/extended-local-storage.html
+https page to http page access sample is [here]: https://kabocha.orz.hm/extended-local-storage.html
+
 ## Release History
 * 2012/11/09 - v0.1.0 - Initial release.
 
