@@ -39,8 +39,8 @@ extended-local-storage enables use different origin local storage.
 ```
 ### your other domain file for local storage
 ```shell
-<script src="js/extended-local-storage-permissions.js"></script>
-<script src="js/extended-local-storage-iframe-0.1.0.min.js"></script>
+<script src="extended-local-storage-permissions.js"></script>
+<script src="extended-local-storage-iframe-0.1.0.min.js"></script>
 ```
 
 ## License
