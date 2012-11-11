@@ -27,8 +27,8 @@ extended-local-storage enables use different origin local storage.
 
     /** get http://otherdomain.com`s local storage */
     exLocalStorage.getItem('hoge', function(value){
-        // do something after getItem and 1st argument is local storage's value
-    })
+        // do something after getItem and 1st argument is local storage`s value
+    });
 </script>
 ```
 ### extend-local-storage-permissions.js
