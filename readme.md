@@ -8,9 +8,40 @@ extended-local-storage enables use different origin local storage.
 * in extended-local-storage-permissions.js, set urls you want to permit to access your domain's localstorage.
 * And then, you can use "extendedLocalStorage.setItem()" and "ExtendedLocalStorage.getItem()".
 
-##Demo
+## Demo
 * http page to https page access sample is [here](http://kabocha.orz.hm/test/extended-local-storage.html)
 * https page to http page access sample is [here](https://kabocha.orz.hm/extended-local-storage.html)
+
+## sample code
+
+### your main html
+```shell
+<script src="extended-local-storage-0.1.0.min.js"></script>
+<script>
+    var extLocalStorage = new ExtendedLocalStorage("http://otherdomain.com/iframe.html");
+
+    /** set http://otherdomain.com's local storage */
+    exLocalStorage.setItem('foo', 'bar', function(){
+        // do something after setItem
+    });
+
+    /** get http://otherdomain.com's local storage */
+    exLocalStorage.getItem('hoge', function(value){
+        // do something after getItem and 1st argument is local storage's value
+    })
+</script>
+```
+### extend-local-storage-permissions
+```shell
+;var extendedLocalStoragePermissions = [
+    'http://yourdomain.com'
+];
+```
+### your other domain file for local storage
+```shell
+<script src="js/extended-local-storage-permissions.js"></script>
+<script src="js/extended-local-storage-iframe-0.1.0.min.js"></script>
+```
 
 ## License
 Copyright (c) 2012 "thujikun" Ryosuke Tsuji  
