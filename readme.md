@@ -12,9 +12,6 @@ extended-local-storage enables use different origin local storage.
 * http page to https page access sample is [here](http://kabocha.orz.hm/test/extended-local-storage.html)
 * https page to http page access sample is [here](https://kabocha.orz.hm/extended-local-storage.html)
 
-## Release History
-* 2012/11/09 - v0.1.0 - Initial release.
-
 ## License
 Copyright (c) 2012 "thujikun" Ryosuke Tsuji  
 Licensed under the MIT license.  
