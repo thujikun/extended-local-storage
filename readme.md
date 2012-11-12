@@ -1,5 +1,5 @@
 # extended-local-storage
-extended-local-storage enables use different origin local storage.
+extended-local-storage enables to use different origin local storage.
 
 ## Getting started
 * load extended-local-storage.x.x.x.js in your main HTML file.
