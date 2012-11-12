@@ -36,26 +36,39 @@ ExtendedLocalStorageIframe.prototype = {
             }
             if(!permissionFlag) return false;
 
-            data = e.data;
+            data = JSON.parse(e.data);
 
             switch(data.type){
                 case 'get':
-                    responseData = {
-                        type:  'get',
-                        value: self.getItem(data.key)
-                    };
+                    responseData = JSON.stringify({
+                        type:        'get',
+                        value:       self.getItem(data.key),
+                        callbackKey: data.callbackKey
+                    });
 
                     /** return value to parent window */
                     e.source.postMessage(responseData, e.origin);
                     break;
 
                 case 'set':
-
                     self.setItem(data.key, data.value);
 
-                    responseData = {
-                        type:  'set'
-                    };
+                    responseData = JSON.stringify({
+                        type:  'set',
+                        callbackKey: data.callbackKey
+                    });
+
+                    /** send message to execute sync function */
+                    e.source.postMessage(responseData, e.origin);
+                    break;
+
+                case 'remove':
+                    self.removeItem(data.key);
+
+                    responseData = JSON.stringify({
+                        type:  'remove',
+                        callbackKey: data.callbackKey
+                    });
 
                     /** send message to execute sync function */
                     e.source.postMessage(responseData, e.origin);
@@ -79,7 +92,6 @@ ExtendedLocalStorageIframe.prototype = {
     },
     setItem: function(key, value) {
         localStorage.setItem(key, JSON.stringify(value));
-        
     },
     getItem: function(key) {
         var value = localStorage.getItem(key);
@@ -90,7 +102,9 @@ ExtendedLocalStorageIframe.prototype = {
             value = null;
         }
         return value;
-
+    },
+    removeItem: function(key) {
+        localStorage.removeItem(key);
     }
 };
 

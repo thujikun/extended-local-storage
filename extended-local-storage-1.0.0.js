@@ -34,6 +34,10 @@ ExtendedLocalStorage.prototype = {
             self.content = self.iframe.contentWindow;
             self.loadEndFlag = true;
         });
+        
+        self.callbackTable = [];
+        self.callbackCnt = 0;
+        self.setCallbacks();
     },
     addEvent: function(handler, element, func) {
         if(element.addEventListener) {
@@ -65,35 +69,65 @@ ExtendedLocalStorage.prototype = {
     },
     setItem: function(key, value, callback) {
         var self = this,
+            callbackKey = 'callback' + self.callbackCnt++,
             data = {
-                "type":  "set",
-                "key":   key,
-                "value": value
+                type:        'set',
+                key:         key,
+                value:       value,
+                callbackKey: callbackKey
             };
-
-        self.send(data);
-
-        self.addEvent('message', window, function(e) {
-            var data = JSON.parse(e.data);
-            if(e.origin === self.origin && data.type === 'set') {
-                callback();
-            }
-        });
         
+        self.callbackTable[callbackKey] = callback;
+        self.send(data);
     },
     getItem: function(key, callback) {
         var self = this,
+            callbackKey = 'callback' + self.callbackCnt++,
             data = {
-                "type":  "get",
-                "key":   key
+                type:        'get',
+                key:         key,
+                callbackKey: callbackKey
             };
 
+        self.callbackTable[callbackKey] = callback;
         self.send(data);
+    },
+    removeItem: function(key, callback) {
+        var self = this,
+            callbackKey = 'callback' + self.callbackCnt++,
+            data = {
+                type:        'remove',
+                key:         key,
+                callbackKey: callbackKey
+            };
+
+        self.callbackTable[callbackKey] = callback;
+        self.send(data);
+    },
+    setCallbacks: function() {
+        var self = this;
 
         self.addEvent('message', window, function(e) {
-            var data = JSON.parse(e.data);
-            if(e.origin === self.origin && data.type === 'get') {
-                callback(data.value);
+            var data,
+                callback;
+
+            if(e.origin === self.origin){
+                data = JSON.parse(e.data);
+                callback = self.callbackTable[data.callbackKey];
+                
+                if(typeof callback === 'function'){
+                    switch(data.type) {
+                        case 'set':
+                            callback();
+                            break;
+                        case 'get':
+                            callback(data.value);
+                            break;
+                        case 'remove':
+                            callback();
+                            break;
+                    }
+                }
             }
         });
     }

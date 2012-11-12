@@ -43,6 +43,17 @@ extended-local-storage enables to use different origin local storage.
 <script src="extended-local-storage-iframe-0.1.0.min.js"></script>
 ```
 
+## Support Browsers
+Internet Explorer8+  
+Chrome  
+Firefox  
+Safari  
+Opera  
+Mobile Safari  
+iphone Chrome  
+Android browser  
+Android Chrome  
+
 ## License
 Copyright (c) 2012 "thujikun" Ryosuke Tsuji  
 Licensed under the MIT license.  
