@@ -18,7 +18,7 @@ extended-local-storage enables use different origin local storage.
 ```shell
 <script src="extended-local-storage-0.1.0.min.js"></script>
 <script>
-    var extLocalStorage = new ExtendedLocalStorage("http://otherdomain.com/iframe.html");
+    var exLocalStorage = new ExtendedLocalStorage("http://otherdomain.com/iframe.html");
 
     /** set http://otherdomain.com`s local storage */
     exLocalStorage.setItem('foo', 'bar', function(){
