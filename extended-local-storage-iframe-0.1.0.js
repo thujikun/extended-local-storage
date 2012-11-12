@@ -36,14 +36,14 @@ ExtendedLocalStorageIframe.prototype = {
             }
             if(!permissionFlag) return false;
 
-            data = e.data;
+            data = JSON.parse(e.data);
 
             switch(data.type){
                 case 'get':
-                    responseData = {
+                    responseData = JSON.stringify({
                         type:  'get',
                         value: self.getItem(data.key)
-                    };
+                    });
 
                     /** return value to parent window */
                     e.source.postMessage(responseData, e.origin);
@@ -53,9 +53,9 @@ ExtendedLocalStorageIframe.prototype = {
 
                     self.setItem(data.key, data.value);
 
-                    responseData = {
+                    responseData = JSON.stringify({
                         type:  'set'
-                    };
+                    });
 
                     /** send message to execute sync function */
                     e.source.postMessage(responseData, e.origin);
