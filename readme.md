@@ -44,15 +44,15 @@ extended-local-storage enables to use different origin local storage.
 ```
 
 ## Support Browsers
-Internet Explorer8+  
-Chrome  
-Firefox  
-Safari  
-Opera  
-Mobile Safari  
-iphone Chrome  
-Android browser  
-Android Chrome  
+* Internet Explorer8+
+* Chrome
+* Firefox
+* Safari
+* Opera
+* Mobile Safari
+* iphone Chrome
+* Android browser
+* Android Chrome
 
 ## License
 Copyright (c) 2012 "thujikun" Ryosuke Tsuji  
