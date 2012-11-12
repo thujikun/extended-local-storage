@@ -50,6 +50,10 @@ ExtendedLocalStorage.prototype = {
     send: function(data) {
         var self = this;
 
+        if(!window.localStorage || !window.JSON){
+            return false;
+        }
+        data = JSON.stringify(data);
         if(self.loadEndFlag) {
             self.content.postMessage(data, self.origin);
         } else {
@@ -70,7 +74,8 @@ ExtendedLocalStorage.prototype = {
         self.send(data);
 
         self.addEvent('message', window, function(e) {
-            if(e.origin === self.origin && e.data.type === 'set') {
+            var data = JSON.parse(e.data);
+            if(e.origin === self.origin && data.type === 'set') {
                 callback();
             }
         });
@@ -86,8 +91,9 @@ ExtendedLocalStorage.prototype = {
         self.send(data);
 
         self.addEvent('message', window, function(e) {
-            if(e.origin === self.origin && e.data.type === 'get') {
-                callback(e.data.value);
+            var data = JSON.parse(e.data);
+            if(e.origin === self.origin && data.type === 'get') {
+                callback(data.value);
             }
         });
     }
