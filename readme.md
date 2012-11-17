@@ -12,7 +12,7 @@ extended-local-storage enables to use different origin local storage.
 * http page to https page access sample is [here](http://kabocha.orz.hm/test/extended-local-storage.html)
 * https page to http page access sample is [here](https://kabocha.orz.hm/extended-local-storage.html)
 
-## Document
+## Doc
 http://kabocha.orz.hm/test/extended-local-storage-doc/
 
 ## sample code
