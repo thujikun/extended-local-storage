@@ -12,10 +12,13 @@ extended-local-storage enables to use different origin local storage.
 * http page to https page access sample is [here](http://kabocha.orz.hm/test/extended-local-storage.html)
 * https page to http page access sample is [here](https://kabocha.orz.hm/extended-local-storage.html)
 
+## Document
+http://kabocha.orz.hm/test/extended-local-storage-doc/
+
 ## sample code
 
 ### your main html
-```shell
+```script
 <script src="extended-local-storage-0.1.0.min.js"></script>
 <script>
     var exLocalStorage = new ExtendedLocalStorage("http://otherdomain.com/iframe.html");
@@ -32,13 +35,13 @@ extended-local-storage enables to use different origin local storage.
 </script>
 ```
 ### extend-local-storage-permissions.js
-```shell
+```script
 ;var extendedLocalStoragePermissions = [
     'http://yourdomain.com'
 ];
 ```
 ### your other domain file for local storage
-```shell
+```script
 <script src="extended-local-storage-permissions.js"></script>
 <script src="extended-local-storage-iframe-0.1.0.min.js"></script>
 ```
