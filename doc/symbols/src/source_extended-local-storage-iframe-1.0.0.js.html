@@ -1,6 +1,65 @@
-/**
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Source - source/extended-local-storage-iframe-1.0.0.js</title>
+	<meta name="generator" content="JsDoc Toolkit" />
+	
+	<link media="all" rel="stylesheet" href="../../css/common.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="../../css/bootstrap.min.css" type="text/css" />
+	<link media="all" rel="stylesheet" href="../../css/prettify.css" type="text/css" />
+	<style type="text/css">
+		.icon-jsdoc {
+			background: url("../../img/classicons.png") no-repeat;
+		}
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="../../js/prettify.js" type="text/javascript"></script>
+	<script src="../../js/bootstrap.min.js" type="text/javascript"></script>
+</head>
+<body><div class="container-fluid">
+<!-- ============================== header ================================= -->	
+	<!-- begin static/header.html -->
+	<header class="header navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container-fluid">
+				<a class="brand" href="#"><strong>JsDoc</strong> Reference</a>
+				<ul id="class-file-selector" class="nav">
+					<li><a href="../../index.html">Class Index</a></li>
+					<li><a href="../../files.html">File Index</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+	<div class="row-fluid">
+		<div id="index" class="span3">
+			<!-- begin publish.classesIndex -->
+			<div class="well" id="class-list">
+	<ul class="nav nav-list">
+		<li class="nav-header">Classes</li>
+		
+			<li><a href="../../symbols/ExtendedLocalStorage.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-class"></i><span class="jsdoc-class-index">ExtendedLocalStorage</span></span></a></li>
+		
+			<li><a href="../../symbols/ExtendedLocalStorageIframe.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-class"></i><span class="jsdoc-class-index">ExtendedLocalStorageIframe</span></span></a></li>
+		
+			<li><a href="../../symbols/_global_.html"><span class="indent" style="padding-left:0px;"><i class="icon-jsdoc icon-jsdoc-namespace"></i><span class="jsdoc-class-index">_global_</span></span></a></li>
+		
+	</ul>
+</div>
+
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content" class="span9">
+<!-- ============================== source code ============================ -->
+
+			<pre id="source-code" class="prettyprint linenums">
+				/**
  * @fileOverview extended local storage for iframe page
- * @description set and get parameters sended by parent page to iframe local storage <br>
+ * @description set and get parameters sended by parent page to iframe local storage &lt;br&gt;
  * require ie8+ or other modern browsers
  * @name extended-local-storage-iframe.js
  * @author Ryosuke Tsuji @thujikun
@@ -12,7 +71,7 @@
 
 /**
  * @class ExtendedLocalStorageIframe
- * @description constructor of ExtendedLocalStorageIframe<br>
+ * @description constructor of ExtendedLocalStorageIframe&lt;br&gt;
  * all methods are private
  * @param {Array} domains permitted domain array
  */
@@ -22,7 +81,7 @@
 ExtendedLocalStorageIframe.prototype = {
     /**
      * @function
-     * @description initialize ExtendedLocalStorageIframe<br>
+     * @description initialize ExtendedLocalStorageIframe&lt;br&gt;
      * private function
      * @param {Array} domains permitted domain array
      */
@@ -42,7 +101,7 @@ ExtendedLocalStorageIframe.prototype = {
                 origin = e.origin;
             
             /** when access url is permitted, continue function */
-            for(i = 0, length = domains.length; i < length; i++) {
+            for(i = 0, length = domains.length; i &lt; length; i++) {
                 if(origin === domains[i]) {
                     permissionFlag = true;
                     break;
@@ -94,7 +153,7 @@ ExtendedLocalStorageIframe.prototype = {
     },
     /**
      * @function
-     * @description add event listener<br>
+     * @description add event listener&lt;br&gt;
      * private function
      * @param  {String}   handler event handler
      * @param  {Object}   element event target
@@ -114,7 +173,7 @@ ExtendedLocalStorageIframe.prototype = {
     },
     /**
      * @function
-     * @description send postMessage to your other HTML<br>
+     * @description send postMessage to your other HTML&lt;br&gt;
      * private function
      * @param  {Object} source   caller source of postMessage
      * @param  {Object} origin   caller origin of postMessage
@@ -130,7 +189,7 @@ ExtendedLocalStorageIframe.prototype = {
     },
     /**
      * @function
-     * @description set local storage<br>
+     * @description set local storage&lt;br&gt;
      * private function
      * @param  {String}   key   local storage key
      * @param  {String}   vakue local storage value
@@ -140,7 +199,7 @@ ExtendedLocalStorageIframe.prototype = {
     },
     /**
      * @function
-     * @description get local storage<br>
+     * @description get local storage&lt;br&gt;
      * private function
      * @param  {String}   key local storage key
      */
@@ -156,7 +215,7 @@ ExtendedLocalStorageIframe.prototype = {
     },
     /**
      * @function
-     * @description remove local storage<br>
+     * @description remove local storage&lt;br&gt;
      * private function
      * @param  {String}   key local storage key
      */
@@ -168,3 +227,23 @@ ExtendedLocalStorageIframe.prototype = {
 !function(){
     var iframeStorage = new ExtendedLocalStorageIframe(extendedLocalStoragePermissions);
 }.call(window);
+
+			</pre>
+		</div>
+	</div>
+	
+<!-- ============================== footer ================================= -->
+	<footer class="footer">
+		
+		<p>Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blankt">JsDoc Toolkit</a> 2.4.0 on Sat Nov 17 2012 16:14:29 GMT+0900 (JST)</p>
+	</footer>
+</div>
+<script type="text/javascript">
+	prettyPrint();
+	var i = 1;
+	$('#source-code li').each(function() {
+		$(this).attr({ id: 'line' + (i++) });
+	});
+</script>
+</body>
+</html>
